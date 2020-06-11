@@ -6,7 +6,8 @@ startScreen.addEventListener('click',start);
 
 let player={speed:5,score:0,carspeed:6};
 let keys = {ArrowUp: false, ArrowDown: false, ArrowLeft: false, ArrowRight: false };
-
+var backgroundmusic = new Audio() ;
+        backgroundmusic.src = "pendulum.mp3" ;
 document.addEventListener('keydown', keyDown);
 document.addEventListener('keyup', keyUp);
 
@@ -52,6 +53,7 @@ function endGame(){
     player.start=false;
     startScreen.classList.remove('hide');
     startScreen.style.background="#900";
+    backgroundmusic.pause();
 
     startScreen.innerHTML="FAILED <br> click to try again";
 }
@@ -62,6 +64,11 @@ function moveEnemy(car){
     enemy.forEach(function(item){
         if(isCollide(car, item)){
             console.log("HITTT");
+            var music = new Audio() ;
+            music.src = "crash.mp3" ;
+            music.play();
+
+
             endGame();
         
 
@@ -104,13 +111,15 @@ function gamePlay(){
 
 
 
-
+        
       
     }
-
+ 
 
 }
 function start(){
+    
+        backgroundmusic.play();
     //gameArea.classList.remove('hide');
     startScreen.classList.add('hide');
     gameArea.innerHTML="";
