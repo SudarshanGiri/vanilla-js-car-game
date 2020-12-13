@@ -79,7 +79,8 @@ function moveEnemy(car){
 
         }
         
-        item.y += player.carspeed;
+        //item.y += player.carspeed;
+        item.y += Math.floor((Math.random() * 7) + 5);
         item.style.top = item.y + "px";
 
     })
@@ -90,15 +91,17 @@ function moveEnemy(car){
 function gamePlay(){
     let car=document.querySelector('.car');
     let road =gameArea.getBoundingClientRect();
-    if(player.start){
+    
+
+        if(player.start){
         moveLines();
+
         moveEnemy(car);
         if(keys.ArrowUp && player.y>(road.top)) {player.y -= player.speed}
         if(keys.ArrowDown && player.y<(road.bottom-90)) {player.y += player.speed}
         if(keys.ArrowLeft && player.x>0) {player.x -= player.speed}
         if(keys.ArrowRight  && player.x<(road.width-90)) {player.x += player.speed}
-        
-        
+       
         car.style.top=player.y + "px";
         car.style.left=player.x + "px";
         window.requestAnimationFrame(gamePlay);
@@ -107,19 +110,23 @@ function gamePlay(){
 
 
         player.score++;
+  
         score.innerHTML="Score = " + player.score;
 
-
+   
+        
 
         
       
     }
+
  
 
 }
 function start(){
     
-        backgroundmusic.play();
+    backgroundmusic.play();
+            
     //gameArea.classList.remove('hide');
     startScreen.classList.add('hide');
     gameArea.innerHTML="";
@@ -134,7 +141,7 @@ function start(){
         gameArea.appendChild(roadLine);
 
     }
-  
+    
 
     let car=document.createElement('div');
     car.setAttribute('class','car');

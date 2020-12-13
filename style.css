@@ -7,10 +7,15 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgb(6, 75, 12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 .hide {
     display: none;
 }
+
 .lines{
     width: 10px;
     height: 70px;
@@ -69,7 +74,7 @@ audio{
 .gameArea{
     background-color: rgb(19, 18, 41);
     width:500px;
-    height: 100vh;
+    height: 750px;
     margin: auto;
     overflow: hidden;
     position: relative;
