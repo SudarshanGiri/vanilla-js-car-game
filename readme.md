@@ -18,4 +18,4 @@ A responsive HTML5 car racing game with obstacle avoidance mechanics, built with
 
 ## Installation 💻
 
-No installation required! Just open `index.html` in any modern browser.
+Just open `index.html` in any modern browser.
