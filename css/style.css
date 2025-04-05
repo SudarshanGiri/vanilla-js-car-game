@@ -141,10 +141,11 @@ body {
     background: white;
     left: 195px;
 }
+
 .car, .enemy{
     position: absolute;
     background-color: white;
-    background-image: url(car1.png);
+    background-image: url(../images/car.png);
     background-position: center;
     background-size: 100% 100%;
     width: 60px;

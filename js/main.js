@@ -13,8 +13,6 @@ const highScoreElementGameOver = document.querySelector(
 );
 const restartButton = document.querySelector(".restart-button");
 
-var backgroundmusic = new Audio();
-backgroundmusic.src = "pendulum.mp3";
 
 // Game state
 let player = {
@@ -37,14 +35,14 @@ let keys = {
 
 // Audio elements
 const backgroundMusic = new Audio();
-backgroundMusic.src = "racing.mp3";
+backgroundMusic.src = "../audio/backgroundmusic.mp3";
 backgroundMusic.loop = true;
 
 const crashSound = new Audio();
-crashSound.src = "crash.mp3";
+crashSound.src = "../audio/crash.mp3";
 
 const levelUpSound = new Audio();
-levelUpSound.src = "levelup.mp3";
+levelUpSound.src = "../audio/levelup.mp3";
 
 // Event listeners
 startButton.addEventListener("click", startGame);
@@ -246,7 +244,6 @@ function checkLevelUp() {
 }
 
 function startGame() {
-  backgroundmusic.play();
   startScreen.style.display = "none";
   gameArea.innerHTML = "";
 
