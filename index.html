@@ -4,30 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Speed Racer Challenge</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-
-    <div class="carGame">
-        <div class="score"></div>
-
-        <div class="startScreen">
-            <p>Press here to start <br>
-                Press arrow keys to move <br>
-                If you hit another car you will lose</p>
+    <div class="gameContainer">
+        <div class="gameHeader">
+            <h1>SPEED RACER</h1>
+            <div class="scoreBoard">
+                <div class="score">SCORE: 0</div>
+                <div class="highScore">HIGH SCORE: 0</div>
+                <div class="level">LEVEL: 1</div>
+            </div>
         </div>
 
+        <div class="startScreen">
+            <div class="startContent">
+                <h2>SPEED RACER CHALLENGE</h2>
+                <p>Use arrow keys to control your car</p>
+                <p>Avoid other vehicles to survive</p>
+                <p>Longer you survive, higher your score!</p>
+                <button class="startButton">START RACE</button>
+                <div class="controls">
+                    <div class="key">↑</div>
+                    <div class="key">↓</div>
+                    <div class="key">←</div>
+                    <div class="key">→</div>
+                </div>
+            </div>
+        </div>
 
+        <div class="gameArea"></div>
+
+        <div class="gameFooter">
+            <button class="muteButton">🔊 SOUND ON</button>
+        </div>
     </div>
-    <div class="gameArea ">
-
+    <div class="game-over-screen">
+        <div class="game-over-content">
+            <h2>GAME OVER</h2>
+            <p class="final-score">Your score: 0</p>
+            <p class="high-score">High score: 0</p>
+            <button class="restart-button">PLAY AGAIN</button>
+        </div>
     </div>
-
-
-
     <script src="main.js"></script>
 </body>
 
