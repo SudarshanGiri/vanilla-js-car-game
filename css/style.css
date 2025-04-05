@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #111;
+    color: white;
+    font-family: 'Racing Sans One', cursive;
+    overflow: hidden;
+}
+
+.gameContainer {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.gameHeader {
+    padding: 10px;
+    text-align: center;
+    background: linear-gradient(to right, #222, #444, #222);
+    border-bottom: 3px solid #ff5500;
+}
+
+.gameHeader h1 {
+    font-size: 2.5rem;
+    color: #ff5500;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    letter-spacing: 3px;
+}
+
+.scoreBoard {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+}
+
+.startScreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.5s;
+}
+
+.startContent {
+    text-align: center;
+    padding: 30px;
+    background: rgba(30, 30, 30, 0.9);
+    border-radius: 15px;
+    border: 3px solid #ff5500;
+    max-width: 500px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 85, 0, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 85, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 85, 0, 0); }
+}
+
+.startContent h2 {
+    color: #ff5500;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.startContent p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.startButton {
+    margin: 20px 0;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-family: 'Racing Sans One', cursive;
+    background: #ff5500;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.startButton:hover {
+    background: #ff7733;
+    transform: scale(1.05);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.key {
+    width: 50px;
+    height: 50px;
+    background: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    border-bottom: 3px solid #555;
+}
+
+.gameArea {
+    position: relative;
+    width: 400px;
+    height: 70vh;
+    margin: 20px auto;
+    background: #333;
+    overflow: hidden;
+    border: 3px solid #555;
+    box-shadow: 0 0 30px rgba(255, 85, 0, 0.3);
+}
+
+
+.lines {
+    position: absolute;
+    width: 10px;
+    height: 80px;
+    background: white;
+    left: 195px;
+}
+
+.car, .enemy{
+    position: absolute;
+    background-color: white;
+    background-image: url(../images/car.png);
+    background-position: center;
+    background-size: 100% 100%;
+    width: 60px;
+    background-repeat: no-repeat;
+    height: 90px;
+    bottom: 50px;
+    
+
+}
+
+
+.headlights {
+    position: absolute;
+    width: 10px;
+    height: 5px;
+    background: #fff;
+    border-radius: 50% 50% 0 0;
+    filter: blur(1px);
+    z-index: 11;
+}
+
+.headlight-beam {
+    position: absolute;
+    width: 120px;
+    height: 40px;
+    background: linear-gradient(90deg, rgba(255,255,200,0.8), transparent);
+    z-index: 9;
+    pointer-events: none;
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);
+    opacity: 0.7;
+}
+
+/* Night mode effect */
+.night-mode {
+    background: #111;
+}
+
+.night-mode .lines {
+    background: rgba(255,255,255,0.3);
+}
+
+
+
+.gameFooter {
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}
+
+.muteButton {
+    padding: 8px 15px;
+    background: #333;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+}
+
+.muteButton:hover {
+    background: #444;
+}
+
+/* Animation for crash effect */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+.crash {
+    animation: shake 0.5s;
+}
+
+/* Level up notification */
+.levelUp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: #ff5500;
+    text-shadow: 3px 3px 0 #000;
+    z-index: 20;
+    opacity: 0;
+    animation: levelUp 2s;
+}
+
+@keyframes levelUp {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+}
+
+.game-over-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 200;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+}
+
+.game-over-content {
+    background: rgba(200, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    border: 3px solid #ff5500;
+    max-width: 400px;
+}
+
+.game-over-screen h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.game-over-screen button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    background: #ff5500;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.game-over-screen button:hover {
+    background: #ff7733;
+    transform: scale(1.05);
+}
